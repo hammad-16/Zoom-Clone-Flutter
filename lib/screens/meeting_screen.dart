@@ -11,7 +11,11 @@ class MeetingScreen extends StatelessWidget {
 createNewMeeting() async{
   var random = Random();
   String roomName = (random.nextInt(100000000 +10000000)).toString();
-  _jitsiMeetMethod.createMeeting(roomName, true, true);
+  _jitsiMeetMethod.createMeeting(roomName: roomName, isAudioMuted: true, isVideoMuted: true);
+}
+joinMeeting(BuildContext context)
+{
+  Navigator.pushNamed(context, '/video-call');
 }
   @override
   Widget build(BuildContext context) {
@@ -24,7 +28,7 @@ createNewMeeting() async{
               icon: Icons.videocam,
               text: 'New Meeting',
             ),
-            HomeMeetingButton(onPressed: (){},
+            HomeMeetingButton(onPressed: ()=>joinMeeting(context),
               icon: Icons.add_box_rounded,
               text: 'Join Meeting',
             ),

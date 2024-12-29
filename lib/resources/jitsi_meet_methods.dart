@@ -4,14 +4,29 @@ import 'package:newzoomclone/resources/auth_methods.dart';
 
 class JitsiMeetMethod{
 final AuthMethods _authMethods = AuthMethods();
-  void createMeeting(String roomName, bool isAudioMuted,bool isVideoMuted) async
+  void createMeeting({
+    required String roomName,
+    required bool isAudioMuted,
+    required bool isVideoMuted,
+    String username=''}) async
   {
+
     try {
+      String name;
+      if(username.isEmpty)
+        {
+          name = _authMethods.user.displayName!;
+        }
+      else
+        {
+          name = username;
+        }
+
       var options = JitsiMeetingOptions(
         roomNameOrUrl: roomName,
         isAudioMuted: isAudioMuted,
         isVideoMuted: isVideoMuted,
-        userDisplayName: _authMethods.user.displayName,
+        userDisplayName: name,
         userEmail: _authMethods.user.email,
         userAvatarUrl: _authMethods.user.photoURL
 

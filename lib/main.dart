@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:newzoomclone/resources/auth_methods.dart';
 import 'package:newzoomclone/screens/home_screen.dart';
 import 'package:newzoomclone/screens/login_screen.dart';
+import 'package:newzoomclone/screens/video_call_screen.dart';
 import 'package:newzoomclone/utils/colors.dart';
 
 void main() async{
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
         ),
         routes: {
           '/login': (context) => const LoginScreen(),
-          '/home' : (context) => const HomeScreen()
+          '/home' : (context) => const HomeScreen(),
+          '/video-call': (context) => const VideoCallScreen(),
 
         },
         home: StreamBuilder(
