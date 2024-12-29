@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:newzoomclone/resources/auth_methods.dart';
 import 'package:newzoomclone/screens/history_meeting_screen.dart';
 import 'package:newzoomclone/screens/meeting_screen.dart';
 import 'package:newzoomclone/utils/colors.dart';
+import 'package:newzoomclone/widget/custom_button.dart';
 import 'package:newzoomclone/widget/home_meeting_button.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -24,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
     MeetingScreen(),
    const HistoryMeetingScreen(),
    const Text("Contacts"),
-   const Text("Settings")
+   CustomButton(text: 'Log Out', onPressed: () => AuthMethods().signOut )
 
  ];
   @override
